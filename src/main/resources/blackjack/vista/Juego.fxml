@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="blackjack.controlador.JuegoController"
+            prefWidth="900.0" prefHeight="760.0"
+            style="-fx-background-color: #1f6b3a;">
+
+    <!-- Saldo y apuesta vigente (HU09.6) -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="24.0" style="-fx-background-color: #14492a;">
+            <padding>
+                <Insets top="12.0" right="20.0" bottom="12.0" left="20.0"/>
+            </padding>
+            <Label text="21 Black Jack" style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblSaldo" text="Saldo: 1000 fichas"
+                   style="-fx-text-fill: #ffe082; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <Label fx:id="lblApuesta" text="Apuesta: —"
+                   style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <!-- Zona del computador y zona del jugador (HU01.2) -->
+    <center>
+        <VBox spacing="14.0">
+            <padding>
+                <Insets top="16.0" right="20.0" bottom="8.0" left="20.0"/>
+            </padding>
+
+            <VBox spacing="6.0" style="-fx-background-color: #2a8049; -fx-background-radius: 10;">
+                <padding>
+                    <Insets top="10.0" right="14.0" bottom="10.0" left="14.0"/>
+                </padding>
+                <HBox spacing="14.0" alignment="CENTER_LEFT">
+                    <Label text="COMPUTADOR (banca)" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+                    <Label fx:id="lblPuntajeComputador" text="Puntaje: —" style="-fx-text-fill: #ffe082; -fx-font-size: 16px;"/>
+                </HBox>
+                <HBox fx:id="cartasComputador" spacing="8.0" alignment="CENTER_LEFT" minHeight="150.0"/>
+                <Label fx:id="lblEstadoComputador" text="Aún no hay ronda." style="-fx-text-fill: #d7f0de; -fx-font-size: 13px;"/>
+            </VBox>
+
+            <VBox spacing="6.0" style="-fx-background-color: #2a8049; -fx-background-radius: 10;">
+                <padding>
+                    <Insets top="10.0" right="14.0" bottom="10.0" left="14.0"/>
+                </padding>
+                <HBox spacing="14.0" alignment="CENTER_LEFT">
+                    <Label text="JUGADOR" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+                    <Label fx:id="lblPuntajeJugador" text="Puntaje: —" style="-fx-text-fill: #ffe082; -fx-font-size: 16px;"/>
+                </HBox>
+                <HBox fx:id="cartasJugador" spacing="8.0" alignment="CENTER_LEFT" minHeight="150.0"/>
+            </VBox>
+        </VBox>
+    </center>
+
+    <!-- Mensajes, campo de apuesta y acciones (HU01.4, HU01.5) -->
+    <bottom>
+        <VBox spacing="10.0" style="-fx-background-color: #14492a;">
+            <padding>
+                <Insets top="12.0" right="20.0" bottom="14.0" left="20.0"/>
+            </padding>
+            <Label fx:id="lblMensaje" wrapText="true" minHeight="44.0"
+                   text="Ingresa una apuesta para comenzar."
+                   style="-fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold;"/>
+            <Label fx:id="lblError" wrapText="true" minHeight="20.0" text=""
+                   style="-fx-text-fill: #ffb4a9; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label text="Apuesta:" style="-fx-text-fill: white; -fx-font-size: 15px;"/>
+                <TextField fx:id="txtApuesta" promptText="múltiplo de 10" prefWidth="130.0" onAction="#onIniciar"/>
+                <Button fx:id="btnIniciar" text="Iniciar ronda" onAction="#onIniciar"/>
+                <Button fx:id="btnPedir" text="Pedir carta" onAction="#onPedir" disable="true"/>
+                <Button fx:id="btnPlantarse" text="Plantarse" onAction="#onPlantarse" disable="true"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnReglas" text="Ver reglas" onAction="#onReglas"/>
+                <Button fx:id="btnCerrar" text="Cerrar juego" onAction="#onCerrar"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
