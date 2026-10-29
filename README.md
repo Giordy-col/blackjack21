@@ -3,7 +3,7 @@
 Mini proyecto 1 · 750014C FPOE · Universidad del Valle · Profesora Paola J. Rodríguez Carrillo
 
 ## Integrantes
-|giordy santiago arcila enriquez | 2242797 | giordy.arcila@correounivalle.edu.co | giordy_col
+|giordy santiago arcila enriquez | 2242797 | giordy.arcila@correounivalle.edu.co | giordy-col
 | Santiago Muñoz bolaños 202539226 | santiago.munoz.bolanos@correounivalle.edu.co | santiagomunozbolanos-netizen
 
 ## Requisitos
